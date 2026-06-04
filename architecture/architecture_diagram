@@ -1,0 +1,81 @@
+                    ┌─────────────────────┐
+                    │     Internet        │
+                    └──────────┬──────────┘
+                               │
+                               │ Logs & Events
+                               ▼
+
+                    ┌─────────────────────┐
+                    │ AWS EC2 Instance    │
+                    │ Ubuntu Server       │
+                    │ Wazuh Agent         │
+                    └──────────┬──────────┘
+                               │
+                               │ Port 1514/1515
+                               ▼
+
+          ┌─────────────────────────────────────┐
+          │        Wazuh Server (VM)            │
+          │                                     │
+          │  ┌─────────────────────────────┐    │
+          │  │ Wazuh Manager               │    │
+          │  │ Log Collection              │    │
+          │  │ Rule Matching               │    │
+          │  │ Alert Generation            │    │
+          │  └──────────────┬──────────────┘    │
+          │                 │                   │
+          │                 ▼                   │
+          │  ┌─────────────────────────────┐    │
+          │  │ Wazuh Indexer               │    │
+          │  │ Event Storage               │    │
+          │  │ Search & Analytics          │    │
+          │  └──────────────┬──────────────┘    │
+          │                 │                   │
+          │                 ▼                   │
+          │  ┌─────────────────────────────┐    │
+          │  │ Wazuh Dashboard             │    │
+          │  │ Visualization               │    │
+          │  │ Monitoring                  │    │
+          │  │ Threat Hunting              │    │
+          │  └─────────────────────────────┘    │
+          └─────────────────────────────────────┘
+                               │
+                               ▼
+
+                    ┌─────────────────────┐
+                    │ Security Analyst    │
+                    │ (Dashboard User)    │
+                    └─────────────────────┘
+AWS EC2 Instance
+Ubuntu EC2 instance deployed in AWS.
+Wazuh Agent installed on the instance.
+Collects:
+System logs
+Authentication events
+Security events
+Process activities
+Wazuh Agent
+Runs on the EC2 instance.
+Monitors the system continuously.
+Sends logs securely to the Wazuh Manager.
+Wazuh Manager
+Central analysis engine.
+Receives logs from agents.
+Applies detection rules.
+Generates security alerts.
+Wazuh Indexer
+Stores all collected events.
+Enables fast searching and analytics.
+Maintains historical security data.
+Wazuh Dashboard
+Web-based monitoring interface.
+Displays:
+Connected agents
+Alerts
+Security events
+Threat hunting data
+Security Analyst
+Accesses the dashboard.
+Investigates alerts.
+Monitors infrastructure health.
+Performs threat hunting.
